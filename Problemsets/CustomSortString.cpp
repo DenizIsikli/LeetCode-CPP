@@ -1,6 +1,8 @@
+#include <string>
+
 class Solution {
 public:
-    string customSortString(string order, string s) {
+    std::string customSortString(std::string order, std::string s) {
         std::string res;
         for (char c : order) {
             for (char k : s) {

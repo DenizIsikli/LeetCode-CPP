@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool isHappy(int n) {
-        // ujse a for loop
         int sum;
         while (n != 1) {
             sum = 0;

@@ -1,6 +1,9 @@
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
-    int reductionOperations(vector<int>& nums) {
+    int reductionOperations(std::vector<int>& nums) {
         if(nums.size() == 1) return 0;
 
         int cnt = 0;

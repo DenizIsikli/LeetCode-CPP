@@ -1,6 +1,9 @@
+#include <string>
+#include <vector>
+
 class Solution {
 public:
-    int numOfPairs(vector<string>& nums, string target) {
+    int numOfPairs(std::vector<std::string>& nums, std::string target) {
         int ans = 0;
         for(int i = 0; i < nums.size(); ++i) {
             for (int j = 0; j < nums.size(); ++j) {

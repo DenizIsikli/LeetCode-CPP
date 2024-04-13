@@ -1,6 +1,9 @@
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
-    int maxIceCream(vector<int>& costs, int coins) {
+    int maxIceCream(std::vector<int>& costs, int coins) {
         std::sort(costs.begin(), costs.end());
         int ans = 0;
         for (int i = 0; i < costs.size(); ++i) {

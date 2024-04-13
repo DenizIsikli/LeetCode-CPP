@@ -1,6 +1,8 @@
+#include <vector>
+
 class Solution {
 public:
-    void moveZeroes(vector<int>& nums) {
+    void moveZeroes(std::vector<int>& nums) {
         std::vector<int> temp;
         for(int i=0;i<nums.size();i++)
         {

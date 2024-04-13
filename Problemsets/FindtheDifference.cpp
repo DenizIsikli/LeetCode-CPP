@@ -1,6 +1,10 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
-    char findTheDifference(string s, string t) {
+    char findTheDifference(std::string s, std::string t) {
         sort(s.begin(), s.end());
         sort(t.begin(), t.end());
 

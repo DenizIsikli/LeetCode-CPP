@@ -1,6 +1,8 @@
+#include <vector>
+
 class Solution {
 public:
-    bool stoneGame(vector<int>& piles) {
+    bool stoneGame(std::vector<int>& piles) {
         int alice, bob = 0;
         int n = piles.size();
 

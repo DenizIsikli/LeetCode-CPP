@@ -1,6 +1,10 @@
+#include <string>
+#include <unordered_map>
+#include <algorithm>
+
 class Solution {
 public:
-    string frequencySort(string s) {
+    std::string frequencySort(std::string s) {
         std::unordered_map<char, int> freq;
         for (char c : s) {
             ++freq[c];
