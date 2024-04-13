@@ -3,15 +3,25 @@ project(Codeforces)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# Path to the directory containing the source files
-set(PROBLEMSETS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Problemsets)
+# Root
+set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+# CPP files in the root directory
+file(GLOB ROOT_SOURCES "${ROOT_DIR}/*.cpp")
 
-# Automatically find all .cpp files in the Problemsets directory
+foreach(ROOT_SOURCE ${ROOT_SOURCES})
+    # Filename and add executable
+    get_filename_component(EXECUTABLE_NAME ${ROOT_SOURCE} NAME_WE)
+    add_executable(${EXECUTABLE_NAME} ${ROOT_SOURCE}
+            template.h)
+endforeach()
+
+# Problemsets
+set(PROBLEMSETS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Problemsets)
+# CPP files in the Problemsets directory
 file(GLOB PROBLEMSETS_SOURCES "${PROBLEMSETS_DIR}/*.cpp")
 
-# Create an executable for each source file found in the Problemsets directory
 foreach(PROBLEMSET_SOURCE ${PROBLEMSETS_SOURCES})
-    # Get the name of the file without the extension to use as the executable name
+    # Filename and add executable
     get_filename_component(EXECUTABLE_NAME ${PROBLEMSET_SOURCE} NAME_WE)
     add_executable(${EXECUTABLE_NAME} ${PROBLEMSET_SOURCE}
             template.h)
