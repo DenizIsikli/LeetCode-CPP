@@ -27,6 +27,18 @@ foreach(PROBLEMSET_SOURCE ${PROBLEMSETS_SOURCES})
             template.h)
 endforeach()
 
+# Problemsets/Problems
+set(PROBLEMS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Problemsets/Problems)
+# CPP files in the Problems directory
+file(GLOB PROBLEMS_SOURCES "${PROBLEMS_DIR}/*.cpp")
+
+foreach(PROBLEM_SOURCE ${PROBLEMS_SOURCES})
+    # Filename and add executable
+    get_filename_component(EXECUTABLE_NAME ${PROBLEM_SOURCE} NAME_WE)
+    add_executable(${EXECUTABLE_NAME} ${PROBLEM_SOURCE}
+            template.h)
+endforeach()
+
 # Prevent showcase of warnings for the template file
 add_library(template_utils_cpp STATIC template.cpp)
 
