@@ -15,3 +15,8 @@ public:
         return count >= n;
     }
 };
+
+int main() {
+
+    return 0;
+}
