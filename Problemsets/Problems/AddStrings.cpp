@@ -1,6 +1,9 @@
+#include <string>
+#include <algorithm>
+
 class Solution {
 public:
-    string addStrings(string num1, string num2) {
+    std::string addStrings(std::string num1, std::string num2) {
         int n = num1.size(), m = num2.size();
         std::string ans = "";
         int carry = 0;
