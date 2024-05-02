@@ -1,6 +1,5 @@
 #include <vector>
 
-
 class Solution {
 public:
     bool dfs(int source, int destination, std::vector<int> adj[], std::vector<int> &visited) {
