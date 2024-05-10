@@ -1,3 +1,6 @@
+#include <vector>
+#include <queue>
+
 class Solution {
 public:
     std::vector<int> kthSmallestPrimeFraction(std::vector<int>& arr, int k) {
