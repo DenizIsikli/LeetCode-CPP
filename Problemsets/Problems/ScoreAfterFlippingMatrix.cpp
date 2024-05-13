@@ -24,7 +24,6 @@ public:
             }
         }
 
-        std::vector<std::vector<int>> ans;
         auto binaryToDecimal = [](std::vector<std::vector<int>> binary) {
             int decimal = 0;
             for (int i = 0; i < binary.size(); ++i) {
