@@ -15,9 +15,7 @@ public:
         for (int j = 1; j < grid[0].size(); ++j) {
             int count = 0;
             for (int i = 0; i < grid.size(); ++i) {
-                if (grid[i][j] == 0) {
-                    count++;
-                }
+                if (grid[i][j] == 0) count++;
             }
             if (count > grid.size()/2) {
                 for (int i = 0; i < grid.size(); ++i) {
@@ -26,28 +24,19 @@ public:
             }
         }
 
-        std::vector<std::vector<int>> binaries;
-        std::vector<int> path;
-        for (int i = 0; i < grid.size(); ++i) {
-            for (int j = 0; j < grid[0].size(); ++j) {
-                path.push_back(grid[i][j]);
-            }
-            binaries.push_back(path);
-            path.clear();
-        }
-
-        auto binaryToDecimal = [](std::vector<int> binary) {
+        std::vector<std::vector<int>> ans;
+        auto binaryToDecimal = [](std::vector<std::vector<int>> binary) {
             int decimal = 0;
             for (int i = 0; i < binary.size(); ++i) {
-                decimal += binary[i] * std::pow(2, binary.size()-1-i);
+                int row = 0;
+                for (int j = 0; j < binary[0].size(); ++j) {
+                    row += binary[i][j] * std::pow(2, binary[0].size()-1-j);
+                }
+                decimal += row;
             }
             return decimal;
         };
 
-        int sum = 0;
-        for (int i = 0; i < binaries.size(); ++i) {
-            sum += binaryToDecimal(binaries[i]);
-        }
-        return sum;
+        return binaryToDecimal(grid);
     }
 };
