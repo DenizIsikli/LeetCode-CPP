@@ -1,3 +1,6 @@
+#include <vector>
+#include <algorithm>
+
 class Solution {
 public:
     void backtrack(std::vector<int> nums, int start, int &ans) {

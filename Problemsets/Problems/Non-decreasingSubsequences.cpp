@@ -1,3 +1,6 @@
+#include <vector>
+#include <unordered_set>
+
 class Solution {
 public:
     void backtracking(std::vector<int> &nums, int start, std::vector<int> &path, std::vector<std::vector<int>> &ans) {

@@ -1,3 +1,6 @@
+#include <string>
+#include <algorithm>
+
 class Solution {
 public:
     int magicalString(int n) {
