@@ -1,6 +1,7 @@
 /cmake-build-default
 /cmake-build-debug
 /build
+.cache
 .idea/LeetCode-CPP.iml
 .idea/
 .idea/*.iml
