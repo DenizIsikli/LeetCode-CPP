@@ -2,7 +2,7 @@
 
 class Solution {
 public:
-    long long countSubstrings(string s, char c) {
+    long long countSubstrings(std::string s, char c) {
         int single_char = 0;
         for(int i=0; i<s.size(); i++){
             if(s[i] == c){

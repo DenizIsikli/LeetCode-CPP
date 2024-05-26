@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+
 class Solution {
 public:
     int numberOfMatches(int n) {

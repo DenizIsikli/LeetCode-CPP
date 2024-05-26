@@ -13,7 +13,7 @@ public:
         ans.push_back(path);
         for (int i = start; i < nums.size(); ++i) {
             path.push_back(nums[i]);
-            backtrack(nums, i+1, pa();
+            backtrack(nums, i+1, path, ans);
         }
     }
 };

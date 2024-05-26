@@ -25,7 +25,7 @@ public:
         backtracking(nums, k, idx+1);
     }
     
-    int beautifulSubsets(vector<int>& nums, int k) {
+    int beautifulSubsets(std::vector<int>& nums, int k) {
         count = 0;
         backtracking(nums, k, 0);
         return count-1;
