@@ -3,6 +3,9 @@ project(LeetCode-CPP)
 
 set(CMAKE_CXX_STANDARD 20)
 
+# Directories for Mingw-w64
+include_directories("C:/Program Files/mingw-w64/include")
+
 # Root
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 # CPP files in the root directory
