@@ -1,29 +1,27 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <unordered_set>
 
 class Solution {
 public:
     std::string replaceWords(std::vector<std::string>& dictionary, std::string sentence) {
+        std::string ans;
         std::istringstream iss(sentence);
         std::string word;
-        std::vector<std::string> words;
+        std::unordered_set<std::string> set(dictionary.begin(), dictionary.end());
 
         while (iss >> word) {
-            for (const std::string &temp : dictionary) {
-                if (word.find(temp)==0) {
-                    word = temp;
+            std::string prefix;
+            for (int i = 0; i < word.size(); ++i) {
+                prefix += word[i];
+                if (set.count(prefix)) {
                     break;
                 }
             }
-            words.push_back(word);
+            ans += prefix + " ";
         }
-
-        std::ostringstream oss;
-        for (size_t i=0; i<words.size(); ++i) {
-            if (i>0) oss << " ";
-            oss << words[i];
-        }
-        return oss.str();
+        ans.pop_back();
+        return ans;
     }
 };
