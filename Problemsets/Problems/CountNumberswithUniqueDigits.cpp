@@ -1,27 +1,13 @@
-#include <vector>
-
 class Solution {
 public:
     int countNumbersWithUniqueDigits(int n) {
-        int range = 1 << n;
-        int count = 0;
-        for (int i = 0; i < range; ++i) {
-            int num = i;
-            std::vector<int> freq(10, 0);
-            bool isUnique = true;
-            while (num) {
-                int digit = num % 10;
-                if (freq[digit] > 0) {
-                    isUnique = false;
-                    break;
-                }
-                freq[digit]++;
-                num /= 10;
-            }
-            if (isUnique) {
-                count++;
-            }
+        int a = 10;
+        int c = 9;
+        if(n == 0) return 1;
+        for(int i = 2; i <= n; i++){
+           c *= (11-i);
+           a += c;
         }
-        return count;
+        return a;
     }
 };
