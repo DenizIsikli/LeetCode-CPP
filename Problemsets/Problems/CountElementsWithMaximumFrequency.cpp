@@ -1,20 +1,24 @@
 #include <vector>
-#include <map>
+#include <unordered_map>
 #include <algorithm>
 
 class Solution {
 public:
     int maxFrequencyElements(std::vector<int>& nums) {
-        std::map<int, int> mp;
-        for (int num : nums) mp[num]++;
-        int maxFreq = 0;
+        std::unordered_map<int, int> mp;
         for (int i = 0; i < nums.size(); i++) {
-            maxFreq = std::max(maxFreq, mp[i]);
+            mp[nums[i]]++;
         }
-        int cnt = 0;
+        int maxFreq = 0;
         for (int i = 0; i < nums.size(); ++i) {
-            if (mp[i] == maxFreq) cnt++;
+            maxFreq = std::max(maxFreq, mp[nums[i]]);
         }
-        return cnt;
+        int count = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (mp[nums[i]] == maxFreq) {
+                count++;
+            }
+        }
+        return count;
     }
 };
