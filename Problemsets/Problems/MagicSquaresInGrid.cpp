@@ -24,7 +24,8 @@ class Solution {
         if(sum != (grid[i][j] + grid[i+1][j+1] + grid[i+2][j+2])) return false;
         if(sum != (grid[i+2][j] + grid[i+1][j+1] + grid[i][j+2])) return false;
 
-        return true;}
+        return true;
+    }
 
 public:
     int numMagicSquaresInside(std::vector<std::vector<int>>& grid) {
