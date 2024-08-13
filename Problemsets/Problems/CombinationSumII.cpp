@@ -11,9 +11,9 @@ public:
         }
 
         for (int i = start; i < candidates.size(); ++i) {
-            if (i > start && candidates[i] == candidates[i - 1]) continue;
+            if (i > start && candidates[i] == candidates[i-1]) continue;
             path.push_back(candidates[i]);
-            dfs(candidates, target - candidates[i], i + 1, path, res);
+            dfs(candidates, target-candidates[i], i+1, path, res);
             path.pop_back();
         }
     }
