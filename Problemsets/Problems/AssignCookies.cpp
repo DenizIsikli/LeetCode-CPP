@@ -4,15 +4,14 @@
 class Solution {
 public:
     int findContentChildren(std::vector<int>& g, std::vector<int>& s) {
-        int cnt = 0;
         std::sort(g.begin(), g.end());
         std::sort(s.begin(), s.end());
-        for (int i = 0, j = 0; i < g.size() && j < s.size(); ++j) {
-            if (s[i] >= g[j]) {
-                ++cnt;
-                ++i;
+        int i = 0;
+        for (int j = 0; i < g.size() && j < s.size(); j++) {
+            if (g[i] <= s[j]) {
+                i++;
             }
         }
-        return cnt;
+        return i;
     }
 };
