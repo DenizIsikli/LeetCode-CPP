@@ -7,9 +7,12 @@
 class Solution {
 private:
     std::unordered_map<std::string, int> vis;
+    std::unordered_map<int, int> memo;
 
     int solve(std::string &s, int idx) {
         if (idx >= s.size()) return 0;
+
+        if (memo.find(idx) != memo.end()) return memo[idx];
 
         int ext = INT_MAX;
         std::string tmp = "";
@@ -23,7 +26,8 @@ private:
         }
 
         ext = std::min(ext, 1+solve(s, idx+1));
-        return ext;
+        memo[idx] = ext;
+        return memo[idx];
     }
 
 public:
