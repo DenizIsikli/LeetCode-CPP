@@ -1,5 +1,4 @@
 #include <vector>
-#include <algorithm>
 
 class MyCalendar {
 public:
