@@ -4,7 +4,7 @@ public:
         int val;
         Node* next;
         Node* prev;
-        Node(int x) : val(x), next(NULL), prev(NULL) {}
+        Node(int x) : val(x), next(nullptr), prev(nullptr) {}
     };
 
     Node* head;
