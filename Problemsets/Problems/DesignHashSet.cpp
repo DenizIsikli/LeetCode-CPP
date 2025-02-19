@@ -1,41 +1,23 @@
-#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 class MyHashSet {
 public:
-    int n = 10000;
-    vector<vector<int>> hashSet;
+    unordered_map<int, bool> hashSet;
 
-    MyHashSet() {
-        hashSet.resize(n);
-    }
+    MyHashSet() {}
     
     void add(int key) {
-        int idx = key%n;
-        for (int x : hashSet[idx]) {
-            if (x == key) return;
-        }
-        hashSet[idx].push_back(key);
+        hashSet[key] = true;
     }
     
     void remove(int key) {
-        int idx = key%n;
-        for (int i = 0; i < hashSet[idx].size(); i++) {
-            if (hashSet[idx][i] == key) {
-                hashSet[idx].erase(hashSet[idx].begin() + i);
-                return;
-            }
-        }
+        hashSet[key] = false;
     }
     
     bool contains(int key) {
-        int idx = key%n;
-        for (int x : hashSet[idx]) {
-            if (x == key) return true;
-        }
-        return false;
-        
+        return hashSet[key];
     }
 };
 
