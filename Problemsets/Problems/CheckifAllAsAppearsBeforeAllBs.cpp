@@ -13,3 +13,18 @@ public:
         return true;
     }
 };
+
+// Other solution
+// class Solution {
+// public:
+//     bool checkString(string s) {
+//         int a=0, b=0;
+//         for (int i = 0; i < s.size(); i++) {
+//             if (s[i]=='a' && b==0) a++;
+//             else if (s[i]=='a' && b>0) { return false; }
+//             if (s[i]=='b') b++;
+//         }
+//         return true;
+//     }
+// };
+
