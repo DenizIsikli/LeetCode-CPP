@@ -20,7 +20,7 @@ public:
     }
 
     vector<string> validStrings(int n) {
-        backtrack(n-1, "1");    
+        backtrack(n-1, "1");
         backtrack(n-1, "0");
         return res;
     }
