@@ -18,6 +18,6 @@ public:
             p2i[pattern[i]] = w2i[word] = i+1;
         }
 
-        return true;
+        return i==n;
     }
 };
