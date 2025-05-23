@@ -1,8 +1,16 @@
+# Build dirs
 /cmake-build-default
 /cmake-build-debug
 /build
-.cache
-.idea/LeetCode-CPP.iml
+
+# IDE config
 .idea/
-.idea/*.iml
+
+# Executables
 *.exe
+
+# Scripts
+/script/executables
+
+# Git
+.git/
