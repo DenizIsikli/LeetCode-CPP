@@ -1,4 +1,3 @@
-#include <map>
 #include <string>
 
 using namespace std;
@@ -11,9 +10,7 @@ public:
 
         for (int i = 0; i < s.size(); i++) {
             if (s[i] >= '0' && s[i] < '9') {
-
                 digitToMaximize = s[i];
-
                 break;
             }
         }
