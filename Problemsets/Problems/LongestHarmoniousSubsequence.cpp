@@ -6,21 +6,17 @@ using namespace std;
 class Solution {
 public:
     int findLHS(vector<int>& nums) {
-        int i = 0;
-        int left = 0, right = 0;
-        int temp = 0, res = 0;
-        sort(nums.begin(), nums.end());
-
-        while (right<nums.size()) {
-            if (nums[right]-nums[left]==1) {
-                temp = right-left+1;
-                res = max(res, temp);
-            } else if (nums[right]-nums[left]>1) {
-                while (nums[right]-nums[left]>1) left++;
+        int res=0;
+        int l=0,r=0;
+        sort(nums.begin(),nums.end());
+        while(r<nums.size()){
+            if(nums[r]-nums[l]==1){
+                res=max(res,r-l);
+            }else if(nums[r]-nums[l]>1){
+                while(nums[r]-nums[l]>1)l++;
             }
-            right++;
+            r++;
         }
-
         return res;
     }
 };
