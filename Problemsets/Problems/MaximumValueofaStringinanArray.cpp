@@ -16,11 +16,8 @@ public:
                     break;
                 }
             }
-            if(isNumeric){
-                value=stoi(str);
-            }else{
-                value=str.size();
-            }
+            if(isNumeric)value=stoi(str);
+            else{value=str.size();}
             maxValue=max(maxValue,value);
         }
         return maxValue;
