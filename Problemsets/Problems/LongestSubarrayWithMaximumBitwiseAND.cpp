@@ -4,18 +4,15 @@
 class Solution {
 public:
     int longestSubarray(std::vector<int>& nums) {
-        int len = 1;
-        int mx = *std::max_element(nums.begin(), nums.end());
-
-        int tmp_len = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] == mx) {
-                tmp_len++;
-            } else {
-                len = std::max(len, tmp_len);
-                tmp_len = 0;
+        int maxAnd=*std::max_element(nums.begin(), nums.end());
+        int maxLength=0,currentLength=0;
+        for (int num : nums) {
+            if (num==maxAnd)currentLength++;
+            else{
+                maxLength=std::max(maxLength,currentLength);
+                currentLength=0;
             }
         }
-        return len;
+        return std::max(maxLength,currentLength);
     }
 };
