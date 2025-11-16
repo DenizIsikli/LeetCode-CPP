@@ -1,22 +1,27 @@
 #include <string>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
+
+using namespace std;
 
 class Solution {
 public:
-    int minimumDeletions(std::string word, int k) {
-        std::vector<int> freq(26, 0);
-        int deleted = 0, ans = word.size();
-        for (char c : word) ++freq[c-'a'];
-        std::sort(freq.begin(), freq.end());
-        for(int i = 0; i < freq.size(); ++i) {
-            int res = deleted;
-            for(int j = freq.size()-1; j > i; --j) {
-                if (freq[j] - freq[i] <= k) break;
-                res += freq[j] - freq[i] - k;
+    int minimumDeletions(string word, int k) {
+        vector<int>s(26,0);
+        for(char c:word){
+            s[c-'a']++;
+        }
+        sort(s.begin(),s.end());
+        int del=0;
+        int ans=word.size();
+        for(int i=0;i<s.size();i++){
+            int tmp=del;
+            for(int j=s.size()-1;j>=i;j--){
+                if(s[j]-s[i]<=k)break;
+                tmp+=s[j]-s[i]-k;
             }
-            ans = std::min(ans, res);
-            deleted += freq[i];
+            ans=min(ans,tmp);
+            del+=s[i];
         }
         return ans;
     }

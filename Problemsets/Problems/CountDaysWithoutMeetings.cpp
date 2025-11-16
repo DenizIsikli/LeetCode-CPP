@@ -7,13 +7,17 @@ class Solution {
 public:
     int countDays(int days, vector<vector<int>>& meetings) {
         sort(meetings.begin(), meetings.end());
-        int prevend = 0;
-        for (auto &m : meetings) {
-            int start = max(m[0], prevend+1);
-            int length = m[1]-start+1;
-            days-=max(0, length);
-            prevend=max(prevend, m[1]);
+        int ans=0;
+        int prevend=0;
+        for(auto meeting:meetings){
+            int start=meeting[0];
+            int end=meeting[1];
+            if(start>prevend){
+                ans+=start-prevend-1;
+            }
+            prevend=max(prevend,end);
         }
-        return days;
+        if(prevend<days)ans+=days-prevend;
+        return ans;
     }
 };
