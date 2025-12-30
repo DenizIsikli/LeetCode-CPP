@@ -13,12 +13,14 @@ class Solution {
     
         int sum = grid[i][j] + grid[i][j+1] + grid[i][j+2];
             
-        for (int x = i; x < 3; ++x) {
-            if (grid[i][j] + grid[i][j+1] + grid[i][j+2] != sum) return false;
+        for (int r = 0; r < 3; ++r) {
+            int rowSum = grid[i+r][j] + grid[i+r][j+1] + grid[i+r][j+2];
+            if (rowSum != sum) return false;
         }
 
-        for (int y = j; y < 3; ++y) {
-            if (grid[i][j] + grid[i+1][j] + grid[i+2][j] != sum) return false;
+        for (int c = 0; c < 3; ++c) {
+            int colSum = grid[i][j+c] + grid[i+1][j+c] + grid[i+2][j+c];
+            if (colSum != sum) return false;
         }
         
         if(sum != (grid[i][j] + grid[i+1][j+1] + grid[i+2][j+2])) return false;
