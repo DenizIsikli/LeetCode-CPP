@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution {
+class solution {
 public:
-    int alternateDigitSum(int n) {
+    int alternatedigitsum(int n) {
         int sum=0,f=1;
         while(n){
             sum+=f*(n%10);
