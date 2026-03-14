@@ -1,28 +1,23 @@
-#include <string>
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
-
 class Solution {
 public:
-    vector<string> hpy;
-
-    string getHappyString(int n, int k) {       
-        string chars = "abc";
-        generateHappyStrings("", n, chars);
-        return k > hpy.size() ? "" : hpy[k - 1];
-    }
-
-    void generateHappyStrings(string current, int n, const string &chars) {
-        if (current.size() == n) {
-            hpy.push_back(current);
+    vector<string>hpy;
+    void hpyString(string cur,string &chars,int n){
+        if(cur.size()==n){
+            hpy.push_back(cur);
             return;
         }
-        
-        for (char c : chars) {
-            if (current.empty() || current.back() != c) {
-                generateHappyStrings(current + c, n, chars);
+        for(char&c:chars){
+            if(cur.empty()||c!=cur.back()){
+                hpyString(cur+c,chars,n);
             }
         }
+    }
+
+    string getHappyString(int n, int k) {
+        string chars="abc";
+        hpyString("",chars,n);
+        return (hpy.size()>=k?hpy[k-1]:"");
     }
 };
