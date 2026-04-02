@@ -13,7 +13,6 @@ public:
                     if(i&&k){dp[i][j][k]=max(dp[i][j][k],dp[i-1][j][k-1]);}
                     if(j){dp[i][j][k]=max(dp[i][j][k],dp[i][j-1][k]+coins[i][j]);}
                     if(j&&k){dp[i][j][k]=max(dp[i][j][k],dp[i][j-1][k-1]);}
-
                 }
             }
         }
