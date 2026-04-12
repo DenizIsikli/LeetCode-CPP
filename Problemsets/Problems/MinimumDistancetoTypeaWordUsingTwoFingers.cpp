@@ -8,7 +8,7 @@ public:
     int minimumDistance(string word) {
         int n=word.size(),dp[300][26][26];
         for(int i=0;i<n;i++){
-            int t=word[i]-'a';
+            int t=word[i]-'A';
             for(int j=0;j<26;j++){
                 for(int k=0;k<26;k++){
                     dp[i+1][j][k]=1e9;
