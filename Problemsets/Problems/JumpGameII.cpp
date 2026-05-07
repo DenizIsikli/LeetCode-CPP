@@ -1,14 +1,16 @@
-#include <vector>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int jump(std::vector<int>& nums) {
-        int current = 0, farthest = 0, jumps = 0;
-
-        for (int i = 0; i < nums.size()-1; ++i) {
-            farthest = std::max(farthest, nums[i]+i);
-            if (i == current) current = farthest, jumps++;
+        int curr=0,mx=0,jm=0;
+        for(int i=0;i<nums.size();i++){
+            if(i>curr){
+                curr=mx;
+                jm++;
+            }
+            mx=max(mx,i+nums[i]);
         }
-        return jumps;
+        return jm;
     }
 };
