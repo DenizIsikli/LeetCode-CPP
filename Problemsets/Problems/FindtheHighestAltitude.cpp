@@ -1,14 +1,13 @@
-#include <vector>
-
+#include<bits/stdc++.h>
 using namespace std;
-
 class Solution {
 public:
     int largestAltitude(vector<int>& gain) {
-        vector<int> v(gain.size()+1);
+        int mx=INT_MIN,cur=0;
         for (int i = 0; i < gain.size(); i++) {
-            v[i+1] = v[i] + gain[i];
+            cur+=gain[i];
+            mx=max(mx,cur);
         }
-        return *max_element(v.begin(), v.end());
+        return max(0,mx);
     }
 };
