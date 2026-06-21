@@ -1,18 +1,12 @@
-#include <vector>
-#include <algorithm>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int maxIceCream(std::vector<int>& costs, int coins) {
-        std::sort(costs.begin(), costs.end());
-        int ans = 0;
-        for (int i = 0; i < costs.size(); ++i) {
-            if (coins >= costs[i]) {
-                coins -= costs[i];
-                ++ans;
-            } else {
-                break;
-            }
+        sort(costs.begin(),costs.end());
+        int ans=0;
+        for(auto&c:costs){
+            if(c<=coins){ans++;coins-=c;}
         }
         return ans;
     }
