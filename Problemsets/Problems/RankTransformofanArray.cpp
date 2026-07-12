@@ -1,22 +1,19 @@
-#include <vector>
-#include <map>
-#include <algorithm>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     std::vector<int> arrayRankTransform(std::vector<int>& arr) {
-        std::vector<int> res;
-        std::vector<int> sortedArr(arr);
-        std::sort(sortedArr.begin(), sortedArr.end());
-        std::map<int, int> rankMap;
-        int rank = 1;
-        for (int i = 0; i < sortedArr.size(); i++) {
-            if (rankMap.find(sortedArr[i]) == rankMap.end()) {
-                rankMap[sortedArr[i]] = rank++;
-            }
+        map<int,vector<int>>mp;
+        for(int i=0;i<arr.size();i++){
+            mp[arr[i]].push_back(i);
         }
-        for (int i = 0; i < arr.size(); i++) {
-            res.push_back(rankMap[arr[i]]);
+        vector<int>res(arr.size());
+        int rank=1;
+        for(auto&it:mp){
+            for(auto&x:it.second){
+                res[x]=rank;
+            }
+            rank++;
         }
         return res;
     }
