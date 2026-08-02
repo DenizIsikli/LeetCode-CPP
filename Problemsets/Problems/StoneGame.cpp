@@ -1,15 +1,8 @@
-#include <vector>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     bool stoneGame(std::vector<int>& piles) {
-        int alice, bob = 0;
-        int n = piles.size();
-
-        if (n % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return (piles.size()%2==0?true:false);
     }
 };
