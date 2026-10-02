@@ -1,23 +1,27 @@
-#include <string>
-#include <vector>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
-    std::vector<std::string> generateParenthesis(int n) {
-        std::vector<std::string> dp[n + 1];
-
-        dp[0].push_back("");
-        dp[1].push_back("()");
-
-        for (int i = 2; i <= n; ++i) {
-            for (int j = 0; j < i; ++j) {
-                for (std::string &first : dp[j]) {
-                    for (std::string &second : dp[i - j - 1]) {
-                        dp[i].push_back("(" + first + ")" + second);
-                    }
-                }
-            }
+    vector<string>res;
+    string cur;
+    void dfs(int o, int c){
+        if(o==0&&c==0){
+            res.push_back(cur);
+            return;
         }
-        return dp[n];
+        if(o>0){
+            cur.push_back('(');
+            dfs(o-1,c);
+            cur.pop_back();
+        }
+        if(c>o){
+            cur.push_back(')');
+            dfs(o,c-1);
+            cur.pop_back();
+        }
+    }
+    std::vector<std::string> generateParenthesis(int n) {
+        dfs(n,n);
+        return res;
     }
 };
