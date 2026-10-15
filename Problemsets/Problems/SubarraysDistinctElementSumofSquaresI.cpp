@@ -3,15 +3,18 @@ using namespace std;
 class Solution {
 public:
     int sumCounts(vector<int>& nums) {
-        int n=nums.size();
-        int res=0;
-        for(int i=0;i<nums.size();i++){
-            set<int>fq;
+        bitset<101>bs;
+        int n=nums.size(),ans=0;
+        for(int i=0;i<n;i++){
+            bs.reset();
+            int cnt=0;
             for(int j=i;j<n;j++){
-                fq.insert(nums[j]);
-                res+=fq.size()*fq.size();
+                int x=nums[j];
+                cnt+=(bs[x]==0);
+                bs[x]=1;
+                ans+=cnt*cnt;
             }
         }
-        return res;
+        return ans;
     }
 };
