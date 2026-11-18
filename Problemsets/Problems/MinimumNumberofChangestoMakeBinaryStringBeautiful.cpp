@@ -1,13 +1,12 @@
-#include <string>
-
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int minChanges(std::string s) {
-        int n = s.size();
-        int cnt = 0;
-        for (int i = 0; i< n; i+=2) {
-            cnt+=(s[i]!=s[i+1]);
+        int ans=0;
+        for(int i=1;i<s.size();i+=2){
+            if(s[i]!=s[i-1])ans++;
         }
-        return cnt;
+        return ans;
     }
 };
