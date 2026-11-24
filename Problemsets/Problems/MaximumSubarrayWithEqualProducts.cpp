@@ -7,7 +7,7 @@ public:
         for(int i=0;i<n;i++){
             long long p=1,g=0,l=1;
             for(int j=i;j<n;j++){
-                p*=nums[i];
+                p*=nums[j];
                 g=gcd(g,(long long)nums[j]);
                 l=lcm(l,(long long)nums[j]);
                 if(p==g*l)ans=max(ans,j-i+1);
